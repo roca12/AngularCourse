@@ -1,0 +1,56 @@
+<div class="container mt-4">
+
+  <!-- property binding
+  <div class="row">
+    <h3>hola mi nombre es {{nombre}}</h3>
+    <br>
+    <input type="text" class="form-control" [placeholder]="textoplaceholder" [disabled]="deshabilitado">
+    <br>
+    <img [src]="imgsrc" />
+  </div>
+-->
+
+  <!-- event binding
+  <H3>{{ texto }}</H3>
+  <button class="btn btn-primary" (click)="cambiarTexto()"> dame click</button>
+-->
+  <!-- two way binding
+  <input type="text" class="form-control" placeholder="Escriba algo aqui" [(ngModel)]="texto">
+  <br>
+  {{ texto}}
+  -->
+  <!-- ng for-->
+  <div class="row">
+    <h3>Listado de estudiantes</h3>
+    <button class="btn btn-primary ml-auto" (click)="toogle()" >Toggle</button>
+  </div>
+  <br>
+  <table class="table" *ngIf="mostrar && listEstudiantes.length > 0">
+    <thead>
+      <th>Numero</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of listEstudiantes; let i = index" [ngSwitch]="estudiante.estado">
+        <td>{{i+1}}</td>
+        <td>{{ estudiante.nombre }}</td>
+        <!--<td [ngStyle]="{'font-style': estudiante.estado==='Pasa'?'italic':'normal'}">-->
+        <td >
+          <!--<span [ngClass]="estudiante.estado === 'Pasa' ? 'badge badge-success':'badge badge-danger'">-->
+          <span *ngSwitchCase="'Pasa'" class="badge badge-success">
+            {{ estudiante.estado }}
+          </span>
+          <span *ngSwitchCase="'Mal'" class="badge badge-danger">
+            {{ estudiante.estado }}
+          </span>
+          <span *ngSwitchCase="'Libre'" class="badge badge-secondary">
+            {{ estudiante.estado }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 *ngIf="listEstudiantes.length === 0">No hay registros para mostrar</h3>
+
+</div>
