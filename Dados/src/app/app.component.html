@@ -1,0 +1,14 @@
+<h1>App Dados Roca12</h1>
+<div class="jumbotron text-center">
+  <button class="btn btn-success btn-lg" (click)="tirarDados()">
+    Tirar los dados
+  </button>
+  <br>
+  <img class="img" [src]="dadoizquierda">
+  <img class="img" [src]="dadoderecha">
+  <h1 *ngIf="numero1 === numero2">
+    <span class="badge badge-success">
+      Ganaste, dados pares
+    </span>
+  </h1>
+</div>
