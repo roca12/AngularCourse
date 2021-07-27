@@ -1,0 +1,24 @@
+<div class="container">
+
+    <!--
+    <H1> MI NOMBRE ES {{getNombre()}}</H1>
+    <img [src]="urlimagen">
+    <input type="text" [placeholder]="texto">
+    <h1>{{titulo}}</h1>
+    <br>
+    <button (click)="cambiarTexto()">Dame click!</button>
+    <br>
+    <h2>{{texto2}}</h2>
+    <app-card [textcard]="texto" (nuevoEvent)="cambiarTexto2($event)"></app-card>
+    -->
+    <h1>Listado de usuarios</h1>
+    <div class="row">
+        <div *ngFor="let usuario of listausuarios" class="col-md-6">
+            <app-card [user]="usuario"></app-card>
+        </div>
+    </div>
+    <H2 *ngIf="5<5">Es menor</H2>
+    <H2 *ngIf="4<5">Es menor</H2>
+
+
+</div>
